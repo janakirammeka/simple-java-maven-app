@@ -14,7 +14,7 @@ pipeline{
                       }
                    }
             }
-         stage('Maven for install'){
+        stage('Maven for install'){
             steps{
                 script{
                    sh mvn clean install
