@@ -9,12 +9,18 @@ pipeline{
         stage('Quality Gate Status Check'){
             steps{
                 script{
-                  withSonarQubeEnv('sonarserver'){ sh "mvn sonar:sonar" }
-                      
-                sh mvn clean install
+                  withSonarQubeEnv('sonarserver'){ 
+                      sh "mvn sonar:sonar" 
+                      }
+                   }
+            }
+         stage('Maven for install'){
+            steps{
+                script{
+                   sh mvn clean install
                 }
             }
-
         }
+     }
     }
 }
